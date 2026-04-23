@@ -7,7 +7,7 @@ function Tasks({ token }) {
 
   // FETCH TASKS
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:3001/tasks", {
+    const res = await fetch("https://taskmanager-backend-bgql.onrender.com/tasks", {
       headers: {
         Authorization: token
       }
@@ -26,7 +26,7 @@ function Tasks({ token }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("http://localhost:3001/tasks", {
+    await fetch("https://taskmanager-backend-bgql.onrender.com/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

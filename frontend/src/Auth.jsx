@@ -10,8 +10,8 @@ function Auth({ setToken }) {
     e.preventDefault();
 
     const url = isLogin
-      ? "http://localhost:3001/auth/login"
-      : "http://localhost:3001/auth/register";
+      ? "https://taskmanager-backend-bgql.onrender.com/auth/login"
+      : "https://taskmanager-backend-bgql.onrender.com/auth/register";
 
     const res = await fetch(url, {
       method: "POST",
