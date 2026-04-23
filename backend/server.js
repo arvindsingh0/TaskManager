@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.log(err));
 
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = ["http://localhost:5173", "https://taskmanager-frontend-phi.vercel.app"];
 
 app.use(cors({
   origin: function (origin, callback) {
