@@ -31,6 +31,7 @@ exports.getTasks = async (req, res) => {
 // UPDATE
 exports.updateTask = async (req, res) => {
   try {
+    console.log("USER FROM TOKEN:", req.user);  
     const updatedTask = await Task.findByIdAndUpdate(
      { _id: req.params.id, user: req.user.id },
   req.body,
@@ -46,6 +47,7 @@ exports.updateTask = async (req, res) => {
 // DELETE
 exports.deleteTask = async (req, res) => {
   try {
+    console.log("USER FROM TOKEN:", req.user);  
     await Task.findByIdAndDelete({
   _id: req.params.id,
   user: req.user.id
