@@ -10,10 +10,18 @@ const app = express();
 
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
+mongoose.set("strictQuery", false);
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB connected");
+  } catch (err) {
+    console.log("Mongo connection failed, retrying...");
+    setTimeout(connectDB, 5000); // retry after 5 sec
+  }
+};
 
+connectDB();
 
 const allowedOrigins = ["http://localhost:5173", "https://project-wamfp.vercel.app"];
 
